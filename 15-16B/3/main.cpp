@@ -15,8 +15,6 @@ public:
             wielomian.emplace_back(n);
         }
     }
-    Wielomian(int size){
-    }
 
     Wielomian(std::list<double> wielo){
         for(auto n : wielo){

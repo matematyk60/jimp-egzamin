@@ -22,6 +22,7 @@ public:
             matrix[i] = T(2.3333+i);
         }
     }
+    
     ~Matrix(){
         delete [] matrix;
     }
@@ -32,6 +33,7 @@ public:
         }
         return matrix[(r-1)*cols+c-1];
     }
+    
     Matrix submatrix(int r1, int r2, int c1, int c2){
         if(c2<c1 || r2<r1 || c2>cols || r2>rows || r1 < 1 || c1 < 1){
             throw "InvalidIndex";
@@ -56,6 +58,7 @@ public:
             std::cout << std::endl;
         }
     }
+    
 private:
     int rows;
     int cols;
