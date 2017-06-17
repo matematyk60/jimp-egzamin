@@ -47,12 +47,9 @@ public:
         list = nullptr;
     }
     AnimalList(const AnimalList& al1){
-
+        //brakuje konstruktora kopiujacego
     }
 
-    AnimalList Copy(const AnimalList& a1){
-        return a1;
-    }
     ~AnimalList(){
         if(list == nullptr){
             return;
