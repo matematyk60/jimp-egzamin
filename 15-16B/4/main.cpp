@@ -29,3 +29,10 @@ int main() {
     delete a;
     return 0;
 }
+/*M 
+~B.f
+sss
+~A.f 
+~B.f
+sss
+~A.f */

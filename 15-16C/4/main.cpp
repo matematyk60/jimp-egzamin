@@ -40,3 +40,8 @@ int main(){
     }
     return 0;
 }
+/*A.f
+B.f
+A.f
+~A.f
+Exc */
