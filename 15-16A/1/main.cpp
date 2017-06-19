@@ -70,18 +70,5 @@ private:
 int main(){
     ListaTablic l1;
     l1.Dodaj(2);
-    l1.Dodaj(2);
-    l1.Dodaj(2);
-    l1.Dodaj(2);
-    l1.Dodaj(2);
-    l1.Dodaj(2);
-    l1.Dodaj(2);
-    l1.Dodaj(9);
-    l1.Dodaj(2);
-    l1.Dodaj(2);
-    l1.Dodaj(2);
-    l1.Dodaj(2);
-    l1.Dodaj(2);
-    l1.Dodaj(2);
     std::cout << l1.pobierz(8);
 }
