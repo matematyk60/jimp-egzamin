@@ -1,0 +1,173 @@
+%
+% These examples are based on the package documentation:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/minted
+%
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{minted}
+\usepackage{multicol}
+\begin{document}
+
+\title{15-16C}
+\author{D.Godek}
+{\scriptsize}
+\section{Base class with functions set as virtual}
+\begin{multicols}{2}
+\Large
+\begin{minted}{c}
+class Base{
+public:
+    Base(){
+        cout << "Base()\n";
+    }
+    virtual void Print() {
+        cout << "Base\n";
+    }
+    virtual ~Base(){
+        cout << "~Base\n";
+    }
+};
+
+class Derrived : public Base{
+public:
+    Derrived(){
+        cout << "Derrived()\n";
+    }
+    void Print(){
+        cout << "Derrived\n";
+    }
+
+    ~Derrived(){
+        cout << "~Derrived\n";
+    }
+};
+
+
+\end{minted}
+\subsection{Creating reference to Derrived}
+\begin{minted}{c}
+int main(){
+    Derrived d;
+    d.Print();
+}
+out:
+Base()
+Derrived()
+Derrived
+~Derrived
+~Base
+\end{minted}
+\subsection{Creating pointer to Derrived}
+\begin{minted}{c}
+int main(){
+    Derrived* d = new Derrived;
+    d->Print();
+    delete d;
+}
+out:
+Base()
+Derrived()
+Derrived
+~Derrived
+~Base
+\end{minted}
+\subsection{Creating pointer to Base}
+\begin{minted}{c}
+int main(){
+    Base* d = new Derrived;
+    d->Print();
+    delete d;
+}
+out:
+Base()
+Derrived()
+Derrived
+~Derrived
+~Base
+\end{minted}
+\end{multicols}
+
+\newpage
+
+\section{Base class with functions set as non-virtual}
+
+
+\begin{multicols}{2}
+\Large
+\begin{minted}{c}
+class Base{
+public:
+    Base(){
+        cout << "Base()\n";
+    }
+    void Print() {
+        cout << "Base\n";
+    }
+    ~Base(){
+        cout << "~Base\n";
+    }
+};
+
+class Derrived : public Base{
+public:
+    Derrived(){
+        cout << "Derrived()\n";
+    }
+    void Print(){
+        cout << "Derrived\n";
+    }
+
+    ~Derrived(){
+        cout << "~Derrived\n";
+    }
+};
+
+
+\end{minted}
+\subsection{Creating reference to Derrived}
+\begin{minted}{c}
+int main(){
+    Derrived d;
+    d.Print();
+}
+out:
+Base()
+Derrived()
+Derrived
+~Derrived
+~Base
+\end{minted}
+\subsection{Creating pointer to Derrived}
+\begin{minted}{c}
+int main(){
+    Derrived* d = new Derrived;
+    d->Print();
+    delete d;
+}
+out:
+Base()
+Derrived()
+Derrived
+~Derrived
+~Base
+\end{minted}
+\subsection{Creating pointer to Base}
+\begin{minted}{c}
+int main(){
+    Base* d = new Derrived;
+    d->Print();
+    delete d;
+}
+out:
+Base()
+Derrived()
+Base
+~Base
+\end{minted}
+\end{multicols}
+
+\end{document}
